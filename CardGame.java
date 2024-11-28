@@ -45,23 +45,33 @@ public class CardGame {
         } catch (IOException e) {
             System.err.println("Error reading file: " + e.getMessage());
         }
-
+        //Commented Out section below, not needed
         // Print the loaded cards
-        System.out.println("Cards loaded:");
-        cardList.displayList();
+        //System.out.println("Cards loaded:");
+        //cardList.displayList();
 		
+        //Added shuffle operation from LinkList into Main
+        cardList.shuffle();
+
+        // Print the shuffled deck
+        System.out.println("Shuffled deck:");
+        cardList.displayList();
+
 		Card[] playerHand = new Card[5];
 		for(int i = 0; i < playerHand.length; i++)
 			playerHand[i] = cardList.getFirst();
 		
+        //Print Player's 5 cards
 		System.out.println("players hand");
 		for(int i = 0; i < playerHand.length; i++)
 			System.out.println(playerHand[i]);
 		
-		System.out.println();
-		System.out.println("the deck");
-		cardList.displayList();
+        //Commented Out section below, not needed
+        //System.out.println();
+		//System.out.println("the deck");
+		//cardList.displayList();
 
+        
 	}//end main
 
 }//end class
