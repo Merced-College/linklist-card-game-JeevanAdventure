@@ -1,3 +1,4 @@
+import java.util.Random;
 
 public class LinkList
 {
@@ -76,10 +77,34 @@ public class LinkList
 		first = first.next;             //    change first
 		return current.cardLink;
 	}
+	//-------------------------------------------------------------
+	//Create a Shuffle/Random Operation to mimic a real life game, by getting random cards
 
+	//Get size of current LinkedLists
+	public int size() {
+        int count = 0;
+        Link current = first;
+        while (current != null) { //Will increment count by 1 until all items have been traversed 
+            count++;
+            current = current.next;
+        }
+        return count; //this count represents the total index of cards in LinkedList
+    }
+
+	//Get card at its index
+	private Link getLinkAt(int index) {
+        Link current = first; //First node of linked List
+        for (int i = 0; i < index; i++) { //
+            if (current == null) return null; //if out of bounds
+            current = current.next;
+        }
+        return current; // node at curent number index
+    }
+
+	
 }  // end class LinkList
 ////////////////////////////////////////////////////////////////
-/*class LinkedLists
+class LinkedLists
 {
 	public static void main(String[] args)
 	{
@@ -105,7 +130,7 @@ public class LinkList
 			System.out.println("Can't delete link");
 
 		theList.displayList();              // display list
-	}  // end main()
-}  // end class LinkList2App
-////////////////////////////////////////////////////////////////
-/// */
+	}  
+
+	
+}  
