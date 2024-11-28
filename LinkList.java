@@ -103,21 +103,22 @@ public class LinkList
 	// Shuffle the list of cards
     public void shuffle() {
         int size = size();
-        Random rand = new Random(); 
+        Random rand = new Random(); //Object to generate random numbers
 
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < size; i++) { 
             // Select two random positions
             int swapIndex1 = rand.nextInt(size);
             int swapIndex2 = rand.nextInt(size);
 
             // Swap nodes at these positions
-            if (swapIndex1 != swapIndex2) {
+            if (swapIndex1 != swapIndex2) { //so cards don't swap with themselves
                 Link link1 = getLinkAt(swapIndex1);
                 Link link2 = getLinkAt(swapIndex2);
-
+				
+				//Swap operation
                 Card temp = link1.cardLink;
-                link1.cardLink = link2.cardLink;
-                link2.cardLink = temp;
+                link1.cardLink = link2.cardLink; //card "'1' is now card '2'
+                link2.cardLink = temp;//Card '2' is now Card '1' (as it was stored in temp variable)
             }
         }
     }
