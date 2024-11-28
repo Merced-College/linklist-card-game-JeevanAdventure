@@ -100,6 +100,27 @@ public class LinkList
         }
         return current; // node at curent number index
     }
+	// Shuffle the list of cards
+    public void shuffle() {
+        int size = size();
+        Random rand = new Random(); 
+
+        for (int i = 0; i < size; i++) {
+            // Select two random positions
+            int swapIndex1 = rand.nextInt(size);
+            int swapIndex2 = rand.nextInt(size);
+
+            // Swap nodes at these positions
+            if (swapIndex1 != swapIndex2) {
+                Link link1 = getLinkAt(swapIndex1);
+                Link link2 = getLinkAt(swapIndex2);
+
+                Card temp = link1.cardLink;
+                link1.cardLink = link2.cardLink;
+                link2.cardLink = temp;
+            }
+        }
+    }
 
 	
 }  // end class LinkList
